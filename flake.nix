@@ -18,7 +18,7 @@
       overlay = final: prev: {
         nixinate = {
           nix = prev.pkgs.writeShellScriptBin "nix"
-            ''${final.nixVersions.unstable}/bin/nix --experimental-features "nix-command flakes" "$@"'';
+            ''${final.nixVersions.latest}/bin/nix --experimental-features "nix-command flakes" "$@"'';
           nixos-rebuild = prev.nixos-rebuild.override { inherit (final) nix; };
         };
         generateApps = flake:
