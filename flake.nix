@@ -75,6 +75,7 @@
                    (x:
                      {
                        type = "app";
+                       meta.description = "Deploy NixOS configuration '${x}' to remote host";
                        program = toString (mkDeployScript {
                          machine = x;
                          dryRun = false;
@@ -86,6 +87,7 @@
                       (x:
                         {
                           type = "app";
+                          meta.description = "Dry-run deployment of NixOS configuration '${nixpkgs.lib.removeSuffix "-dry-run" x}' (shows what would be activated without making changes)";
                           program = toString (mkDeployScript {
                             machine = nixpkgs.lib.removeSuffix "-dry-run" x;
                             dryRun = true;
